@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Build') {
+            steps {
+                dir('aws-java-app') {
+                    sh 'mvn clean package'
+                }
+            }
+        }
+
+        stage('Run') {
+            steps {
+                dir('aws-java-app') {
+                    sh 'java -jar target/aws-java-app-1.0-SNAPSHOT.jar'
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build successful!'
+        }
+
+        failure {
+            echo 'Build failed!'
+        }
+    }
+}
