@@ -30,7 +30,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.aws.demo.App</mainClass>
+                            <mainClass>com.aws.demo.main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
